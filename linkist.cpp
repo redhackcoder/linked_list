@@ -1,5 +1,7 @@
-#include<iostream.h>
+#include<iostream>
 #include<conio.h>
+using namespace std;
+
 struct node // structure is used to create userdefine datatype
 {
    int data ;
@@ -8,32 +10,32 @@ struct node // structure is used to create userdefine datatype
 
  class list
  {
-     node *head, *tail;
- public:
+   node *head, *tail;
+   public:
    void create_node(int value)
    {
-     node *temp= new node;
-     temp-> data = value;
-     temp-> next = NULL;
-     if(head==NULL)
-     {
-       head = temp;
-       tail = temp;
-       temp = NULL;
-     }
-     else
-     {
-       tail->next = temp;
-       tail = temp;
-     }
+         node *temp= new node;
+         temp-> data = value;
+         temp-> next = NULL;
+         if(head==NULL)
+         {
+           head = temp;
+           tail = temp;
+           temp = NULL;
+         }
+         else
+         {
+           tail->next = temp;
+           tail = temp;
+         }
    }
-    void display()
-    {
+   void display()
+   {
        node *temp= new node;
        temp = head;
        while(temp!=NULL)
        {
-         cout << temp << '\n';
+         cout << temp->data << '\n';
          temp= temp->next;
        }
     }
@@ -44,43 +46,32 @@ struct node // structure is used to create userdefine datatype
        tail = NULL;
      }
  };
-  void display()
-  {
-     node *temp= new node;
-     temp = head;
-     while(temp!=NULL)
-     {
-       cout << temp << '\n';
-       temp= temp->next;
-     }
-  }
 
  int main()
  {
    list s1;
-   int choise , value;
-   start=NULL;
-   while(1)
+   int choice , value;
+   while(choice != 3)
   {
-   cout << "1. create" << '\n';
-   cout << "2. display" << '\n';
-   cout<<"select the option";
-   cin>>choise;
-   switch (choise)
-   {
-     case 1:
-             cout<<"enter the value";
-             cin>>value
-             s1.create_node(value);
-             break;
-    case 2:
-            cout << "enter the linklist at last" << '\n';
-            s1.display();
-            break;
-    default :
-             std::cout << "worng choise" << '\n';
-             break;
+       cout << "1. create" << '\n';
+       cout << "2. display" << '\n';
+       cout<<"3. Exit"
+       cout<<"select the option: ";
+       cin>>choice;
+       switch (choice)
+       {
+         case 1:
+                 cout<<"enter the value";
+                 cin>>value;
+                 s1.create_node(value);
+                 break;
+        case 2:
+                cout << "enter the linklist at last" << '\n';
+                s1.display();
+                break;
+        default :
+                 cout << "wrong choice" << '\n';
+      }
    }
- }
    return 0;
  }
